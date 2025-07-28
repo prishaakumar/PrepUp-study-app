@@ -168,51 +168,14 @@ npm install
 cd backend && pip install -r requirements.txt && cd ..
 
 # Set up environment variables
-cp env.template .env
-# Edit .env with your Supabase credentials
+# Create a .env file with your Supabase credentials
 
 # Start the development servers
 npm run dev  # Frontend (http://localhost:5173)
 cd backend && uvicorn main:app --reload  # Backend (http://localhost:8000)
 ```
 
-## 🚀 Deployment
 
-### Quick Deployment (GitHub Pages)
-
-1. **Set up your repository:**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/prepup.git
-   git push -u origin main
-   ```
-
-2. **Configure GitHub Pages:**
-   - Go to your repository Settings → Pages
-   - Select "GitHub Actions" as source
-   - Add environment variables in Settings → Secrets and variables → Actions:
-     - `VITE_SUPABASE_URL`: Your Supabase project URL
-     - `VITE_SUPABASE_ANON_KEY`: Your Supabase anon key
-
-3. **Deploy automatically:**
-   - Push to `main` branch
-   - GitHub Actions will build and deploy automatically
-
-### Alternative Deployment Options
-
-- **Frontend:** Vercel, Netlify, GitHub Pages
-- **Backend:** Railway, Render, Heroku, DigitalOcean
-- **Full Guide:** See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions
-
-### Automated Deployment Script
-
-```bash
-# Run the deployment script
-./deploy.sh
-```
 
 ---
 
