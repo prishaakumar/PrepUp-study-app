@@ -20,7 +20,9 @@ jobs:
         node-version: '18'
         
     - name: Install dependencies
-      run: npm install
+      run: |
+        npm cache clean --force
+        npm install --no-optional --platform=linux --arch=x64
       
     - name: Build
       run: npm run build
