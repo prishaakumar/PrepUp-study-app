@@ -2,8 +2,6 @@
 
 **PrepUp** is a modern, AI-powered study planner and quiz generator designed to help students organize their learning, track progress, and practice with personalized quizzes. Built with React, FastAPI, and Supabase.
 
-## 🌐 Live Demo
-
 <div align="center">
 
 [![Live Demo](https://img.shields.io/badge/🚀-Live%20Demo-blue?style=for-the-badge&logo=vercel&logoColor=white)](https://prep-up-study-app.vercel.app/)
