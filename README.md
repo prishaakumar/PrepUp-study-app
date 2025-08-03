@@ -158,6 +158,8 @@ A: Fork the repo, make your changes, and submit a pull request!
 
 ## 🚀 Quick Start
 
+### Local Development
+
 ```sh
 # Clone the repository
 git clone https://github.com/yourusername/prepup.git
@@ -174,6 +176,25 @@ cd backend && pip install -r requirements.txt && cd ..
 npm run dev  # Frontend (http://localhost:5173)
 cd backend && uvicorn main:app --reload  # Backend (http://localhost:8000)
 ```
+
+### Live Deployment
+
+For a live demo, deploy using Vercel + Render:
+
+1. **Frontend (Vercel):** Deploy React app to Vercel
+2. **Backend (Render):** Deploy FastAPI to Render
+3. **Database:** Supabase (already configured)
+
+**Quick Deploy:**
+```bash
+# Run the deployment guide
+./deploy-vercel-render.sh  # Linux/Mac
+# OR
+deploy-vercel-render.bat   # Windows
+```
+
+**Manual Deploy:**
+- See `vercel-render-deploy.md` for detailed instructions
 
 
 
