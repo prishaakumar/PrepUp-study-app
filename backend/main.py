@@ -68,7 +68,7 @@ async def ask(question: str = Form(...), documents: UploadFile = File(None)):
 
     try:
         client = openai.OpenAI(
-            api_key="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",
+            api_key=os.getenv("OPENROUTER_API_KEY"),
             base_url="https://openrouter.ai/api/v1"
         )
         response = client.chat.completions.create(
@@ -157,7 +157,7 @@ async def generate_quiz(
         prompt += "Return the quiz as a JSON array with each question having: id, type, question, options (if applicable), and answer."
         try:
             client = openai.OpenAI(
-                api_key=os.getenv("OPENAI_API_KEY", "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"),
+                api_key=os.getenv("OPENROUTER_API_KEY"),
                 base_url="https://openrouter.ai/api/v1"
             )
             response = client.chat.completions.create(
