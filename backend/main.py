@@ -67,8 +67,12 @@ async def ask(question: str = Form(...), documents: UploadFile = File(None)):
     prompt = f"You are an expert tutor. Use the following document to answer the question.\n\nDocument:\n{context}\n\nQuestion: {question}\n\nAnswer:"
 
     try:
+        api_key = os.getenv("OPENROUTER_API_KEY")
+        if not api_key:
+            return {"answer": "Error: OPENROUTER_API_KEY environment variable is not set. Please check your Render environment variables."}
+        
         client = openai.OpenAI(
-            api_key=os.getenv("OPENROUTER_API_KEY"),
+            api_key=api_key,
             base_url="https://openrouter.ai/api/v1"
         )
         response = client.chat.completions.create(
@@ -156,8 +160,12 @@ async def generate_quiz(
         prompt += f"Document Content:\n{context[:4000]}\n"  # Truncate to fit model limits
         prompt += "Return the quiz as a JSON array with each question having: id, type, question, options (if applicable), and answer."
         try:
+            api_key = os.getenv("OPENROUTER_API_KEY")
+            if not api_key:
+                return {"error": "OPENROUTER_API_KEY environment variable is not set. Please check your Render environment variables."}
+            
             client = openai.OpenAI(
-                api_key=os.getenv("OPENROUTER_API_KEY"),
+                api_key=api_key,
                 base_url="https://openrouter.ai/api/v1"
             )
             response = client.chat.completions.create(
